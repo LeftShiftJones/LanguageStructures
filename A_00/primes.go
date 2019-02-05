@@ -18,6 +18,7 @@ func main() {
 
     if(num_read < 1 && err != nil) {
         fmt.Println("\n\nBye!")
+        
     } else {
         var lst = []int{}
         prime_partitions(num, 1, lst)
