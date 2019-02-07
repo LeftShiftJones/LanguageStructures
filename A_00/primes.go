@@ -12,11 +12,7 @@ func main() {
         fmt.Printf("Enter a number (non-number to quit): ")
 
         var num int
-        // read in user input
         num_read, err := fmt.Scanf("%d", &num)
-
-        // fmt.Printf("num read: %d", num_read)
-
         if(num_read < 1 && err != nil) {
             fmt.Println("\n\nBye!")
             break
@@ -59,7 +55,6 @@ func prime_partitions(n int, k int, lst []int) {
         print_primes(lst)
     } else if(n > k) {
         for _, p := range primes(k + 1, n) {
-            // fmt.Printf("%d", i)
             prime_partitions(n - p, p, append(lst, p))
         }
     }
