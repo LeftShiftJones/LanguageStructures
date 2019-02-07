@@ -8,22 +8,23 @@ import (
 )
 
 func main() {
-    fmt.Printf("Enter a number (non-number to quit): ")
+    for {
+        fmt.Printf("Enter a number (non-number to quit): ")
 
-    var num int
-    // read in user input
-    num_read, err := fmt.Scanf("%d", &num)
+        var num int
+        // read in user input
+        num_read, err := fmt.Scanf("%d", &num)
 
-    // fmt.Printf("num read: %d", num_read)
+        // fmt.Printf("num read: %d", num_read)
 
-    if(num_read < 1 && err != nil) {
-        fmt.Println("\n\nBye!")
-        
-    } else {
-        var lst = []int{}
-        prime_partitions(num, 1, lst)
+        if(num_read < 1 && err != nil) {
+            fmt.Println("\n\nBye!")
+            break
+        } else {
+            var lst = []int{}
+            prime_partitions(num, 1, lst)
+        }
     }
-
 }
 
 
