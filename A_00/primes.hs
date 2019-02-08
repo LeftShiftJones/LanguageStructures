@@ -1,3 +1,6 @@
+import Data.List
+import Data.String
+
 -- helper functions
 intsqrt :: Int -> Int
 intsqrt x = ceiling (sqrt (fromIntegral x))
@@ -11,15 +14,24 @@ is_prime x = if x == 2 || x == 3 then True
     else if null (takeWhile (<x) [n | n <- [2..(intsqrt x)], x `mod` n == 0]) then True
     else False
 
-prime_partitions :: [Int] -> Int -> Int -> Int -> ()
-prime_partitions lst lo hi total =
-    do {
+prime_partitions :: Int -> [Int] -> [Int] -> [[Int]] -> [[Int]]
+prime_partitions n primes lst sols =
+    if sum lst == n then lst:sols
+    else if null primes then [[]]
+    else [x | x <- (sols ++ 
+                   (prime_partitions n (tail primes) ((head primes):lst) sols) ++
+                   (prime_partitions n (tail primes) lst sols)),
+                   not (null x)]
+
+print_partitions :: [[Int]] -> IO ()
+print_partitions sols = do {
     (
-        prime_partitions (head (head primes)):[] (head (head (head primes))) last primes (total - (head (head primes)))
+        putStrLn (intercalate " + " [ show x | x <- (reverse (head sols))] )
     );
     (
-        if sum lst == total then print intercalate " + " lst
-        else if (sum lst) + lo < total then prime_partitions lo:lst head primes last primes (total - (head primes))
-        else return ()
+        if not (null (tail sols)) then print_partitions (tail sols) else putStr ""
     );
-    }
+}
+
+run :: Int -> IO ()
+run n = print_partitions ( prime_partitions n (primes 2 n) [] [[]] )
