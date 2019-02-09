@@ -19,8 +19,7 @@ function prime_partitions(n, k = 1, lst = []) {
         print_primes(lst)
     } else if(n > k) {
         primes(k + 1, n).forEach((i)=> {
-            temp = lst.concat(i)
-            prime_partitions(n - i, i, temp);
+            prime_partitions(n - i, i, lst.concat(i));
         })
     }
 }
