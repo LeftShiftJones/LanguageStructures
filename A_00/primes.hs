@@ -19,14 +19,14 @@ prime_partitions n primes lst sols =
     if sum lst == n then lst:sols
     else if null primes then [[]]
     else [x | x <- (sols ++ 
-                   (prime_partitions n (tail primes) ((head primes):lst) sols) ++
-                   (prime_partitions n (tail primes) lst sols)),
+                   (prime_partitions n (init primes) ((last primes):lst) sols) ++
+                   (prime_partitions n (init primes) lst sols)),
                    not (null x)]
 
 print_partitions :: [[Int]] -> IO ()
 print_partitions sols = do {
     (
-        putStrLn (intercalate " + " [ show x | x <- (reverse (head sols))] )
+        putStrLn (intercalate " + " [ show x | x <- (head sols)] )
     );
     (
         if not (null (tail sols)) then print_partitions (tail sols) else putStr ""

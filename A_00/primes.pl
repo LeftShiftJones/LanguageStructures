@@ -33,7 +33,7 @@ primes(Lo,Hi,L) :-
 list_sum([],0).						% Base case of List sum: empty list just returns
 list_sum([Head | Tail], TotalSum) :-
 	list_sum(Tail, Sum),			% Run listsum on next value
-	TotalSum is Head + Sum.		% return sum value (builds from the bottom recursively)
+	TotalSum is Head + Sum.		    % return sum value (builds from the bottom recursively)
 
 
 print_sum([H | T]) :-
@@ -52,6 +52,7 @@ print_sum([H | T]) :-
 %
 % Works by appending head of list to another list, which recursion
 % makes a reversed list. Base case returns the new list
+
 reverse([],Z,Z).					% Base Case: return list
 reverse([H|T],Z,Acc) :-
 	reverse(T,Z,[H|Acc]).			% Append head to Acc

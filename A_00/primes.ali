@@ -1,0 +1,91 @@
+V "GNAT Lib v5"
+M P W=b
+P SS ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV SPARK_05
+
+U primes%b		primes.adb		20e910c9 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20070406091342 3ffc8e18 ada%s
+D a-except.ads		20140730140058 5250cb69 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20140730140058 dc4d0634 ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20141120112812 6033a23f interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D primes.adb		20190210054732 0a6f73dd primes%b
+D system.ads		20141031112219 1d274481 system%s
+D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-secsta.ads		20140225151139 86a2856d system.secondary_stack%s
+D s-soflin.ads		20140801100131 aa763b52 system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150220094550 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 19e8 12|1r6 1r19 1r40 2r5 2r18 2r39 81r14
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 12|1w23 2r22
+X 4 a-ioexce.ads
+18K13*IO_Exceptions 30e22 12|1w44 2r43 81r18
+27X4*Data_Error 12|81r32
+X 7 a-textio.ads
+49K13*Text_IO 471e16 12|1w10 2r9
+166U14*New_Line 12|18s9
+242U14*Put 12|15s13 17s9 76s5 82s13
+X 8 a-tiinio.ads
+56U14*Get 12|77s5[3|18]
+X 12 primes.adb
+4U11*Primes 4b11 84l5 84t11
+6A10 Prime_List(integer)<integer> 8r13 12r33 35r68 36r13 54r25 65r62 65r85
+7i5 N{integer} 77m9 78r22 78r40
+8a5 Empty{6A10} 78r44
+12U15 Print_List 12b15 12>26 19l9 19t19 67s35
+12a26 List{6A10} 14r18 14r31 15r31 17r27 17r32
+14i13 i{integer} 15r36
+23V14 Is_Prime{boolean} 23b14 23>23 23>36 31s16 32l9 32t17 42s16
+23i23 N{integer} 25r30 27r15 31r25
+23i36 Check{integer} 25r13 25r21 27r21 31r28
+35V14 Primes_List{6A10} 35b14 35>26 35>43 51l9 51t20 78s25
+35i26 Start{integer} 36r25 38r38 41r18
+35i43 Finish{integer} 36r32 41r25
+36a9 X{6A10} 43m17 50r16
+37i9 Start_Prime_Index{integer} 44r21 44m50 50r18
+38i9 End_Prime_Index{integer} 43r19 45m17 45r36 50r37
+41i13 i{integer} 42r25 43r39 44r71
+54V14 Sum{integer} 54b14 54>18 62l9 62t12 67s12
+54a18 List{6A10} 57r18 57r30 58r26
+55i9 Val{integer} 58m13 58r20 61r16
+57i13 i{integer} 58r31
+65U15 Prime_Partitions 65b15 65>32 65>45 65>74 70s13 71s13 73l9 73t25 78s5
+65i32 N{integer} 67r28 70r30 71r30
+65a45 List_Of_Primes{6A10} 68r15 70r33 70r48 70r72 70r105 70r120 71r33 71r48
+. 71r72
+65a74 Solution{6A10} 67r16 67r46 70r94 71r94
+
