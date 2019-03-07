@@ -1,9 +1,9 @@
-t: do laundry; feb 2
+t: do laundry; 2 feb 2018
     t: gather laundry
     t: sort laundry
         n: whites go in blue basket
     t: wash
-t (done): homework 01; feb 24
-t (tomorrow): pet dog; feb 6
-n: held my sisters birthday today!; feb 19
-e: sisters birthday; feb 19
+t (done): homework 01; 6 feb 2401
+t (tomorrow): pet dog; 20 feb 6321
+n: held my sisters birthday today!
+e: sisters birthday; 5 feb 1932
