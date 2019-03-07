@@ -1,15 +1,15 @@
-// Generated from /home/CS/users/dfletche/.linux/language-structures/LanguageStructures/Term Project/tasker/TaskerGrammar.g4 by ANTLR 4.7.2
-import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.*;
+// Generated from /home/CS/users/dfletche/.linux/language-structures/LanguageStructures/Term Project/tasker/TaskrGrammar.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class TaskerGrammarLexer extends Lexer {
+public class TaskrGrammarParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -17,17 +17,11 @@ public class TaskerGrammarLexer extends Lexer {
 		new PredictionContextCache();
 	public static final int
 		MOD=1, DIGIT=2, LETTER=3, WS=4;
-	public static String[] channelNames = {
-		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
-	};
-
-	public static String[] modeNames = {
-		"DEFAULT_MODE"
-	};
-
+	public static final int
+		RULE_prog = 0;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"MOD", "DIGIT", "LETTER", "WS"
+			"prog"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -77,14 +71,8 @@ public class TaskerGrammarLexer extends Lexer {
 		return VOCABULARY;
 	}
 
-
-	public TaskerGrammarLexer(CharStream input) {
-		super(input);
-		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
-	}
-
 	@Override
-	public String getGrammarFileName() { return "TaskerGrammar.g4"; }
+	public String getGrammarFileName() { return "TaskrGrammar.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -93,23 +81,58 @@ public class TaskerGrammarLexer extends Lexer {
 	public String getSerializedATN() { return _serializedATN; }
 
 	@Override
-	public String[] getChannelNames() { return channelNames; }
-
-	@Override
-	public String[] getModeNames() { return modeNames; }
-
-	@Override
 	public ATN getATN() { return _ATN; }
 
+	public TaskrGrammarParser(TokenStream input) {
+		super(input);
+		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
+	}
+
+	public static class ProgContext extends ParserRuleContext {
+		public TerminalNode EOF() { return getToken(TaskrGrammarParser.EOF, 0); }
+		public ProgContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_prog; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TaskrGrammarListener ) ((TaskrGrammarListener)listener).enterProg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TaskrGrammarListener ) ((TaskrGrammarListener)listener).exitProg(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TaskrGrammarVisitor ) return ((TaskrGrammarVisitor<? extends T>)visitor).visitProg(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ProgContext prog() throws RecognitionException {
+		ProgContext _localctx = new ProgContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_prog);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(2);
+			match(EOF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\6\32\b\1\4\2\t\2"+
-		"\4\3\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\3\2\3\3\3\3\3\4\3\4\3\5\6\5\25\n"+
-		"\5\r\5\16\5\26\3\5\3\5\2\2\6\3\3\5\4\7\5\t\6\3\2\5\3\2\62;\4\2C\\c|\4"+
-		"\2\13\f\"\"\2\32\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\3\13"+
-		"\3\2\2\2\5\17\3\2\2\2\7\21\3\2\2\2\t\24\3\2\2\2\13\f\7O\2\2\f\r\7Q\2\2"+
-		"\r\16\7F\2\2\16\4\3\2\2\2\17\20\t\2\2\2\20\6\3\2\2\2\21\22\t\3\2\2\22"+
-		"\b\3\2\2\2\23\25\t\4\2\2\24\23\3\2\2\2\25\26\3\2\2\2\26\24\3\2\2\2\26"+
-		"\27\3\2\2\2\27\30\3\2\2\2\30\31\b\5\2\2\31\n\3\2\2\2\4\2\26\3\b\2\2";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\6\7\4\2\t\2\3\2\3"+
+		"\2\3\2\2\2\3\2\2\2\2\5\2\4\3\2\2\2\4\5\7\2\2\3\5\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

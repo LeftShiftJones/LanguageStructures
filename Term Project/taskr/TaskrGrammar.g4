@@ -1,4 +1,4 @@
-grammar TaskerGrammar;
+grammar TaskrGrammar;
 
 prog: EOF;
 

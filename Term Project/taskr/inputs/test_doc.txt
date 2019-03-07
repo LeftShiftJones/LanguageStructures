@@ -1,20 +1,4 @@
-C feb 19
-    W
-        mon
-            T do laundry
-        sat
-    W
-    W
-
-
-
-
----------
-C feb 2019
-
-W 1-4
-
-t (later): do laundry; feb 2
+t: do laundry; feb 2
     t: gather laundry
     t: sort laundry
         n: whites go in blue basket

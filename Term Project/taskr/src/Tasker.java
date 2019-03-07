@@ -10,9 +10,9 @@ public class Tasker {
     public static void main(String[] args) throws Exception {
         FileInputStream inputstream = new FileInputStream("inputs/test_doc.txt");
         ANTLRInputStream input = new ANTLRInputStream(inputstream);
-        TaskerGrammarLexer lexer = new TaskerGrammarLexer(input);
+        TaskrGrammarLexer lexer = new TaskrGrammarLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        TaskerGrammarParser parser = new TaskerGrammarParser(tokens);
+        TaskrGrammarParser parser = new TaskrGrammarParser(tokens);
         parser.prog(); // parse the input stream!
     }
 }
