@@ -3,15 +3,12 @@ grammar TaskrGrammar;
 prog: entries* EOF;
 
 entries: entry NEWLINE
-       | comment NEWLINE
        ;
 
-entry: task description date
-     | event description date
+entry: task description ';' date repeat
+     | event description ';' date repeat
      | note description
      ;
-
-comment: '//' description;
 
 task: 't' modifier ':';
 
@@ -19,9 +16,13 @@ event: 'e' modifier ':';
 
 note: 'n:';
 
-date: ';' day month year
+date: day month year
     |
     ;
+
+repeat: '['interval date']'
+      |
+      ;
 
 modifier: '('status')'
         |
@@ -29,14 +30,20 @@ modifier: '('status')'
 
 status: ('later'|'tomorrow'|'done');
 
+interval: ('d'|'w'|'m'|'y'|'n' DIGIT+);
+
 day        : DIGIT (DIGIT)?;
 month      : WORD;
 year       : DIGIT DIGIT DIGIT DIGIT;
 
 description: (WORD|PUNCTUATION|DIGIT)+;
 
+
+// comments
+LINE_COMMENT:   '//' .*? '\r'? '\n' -> skip ;
+
 // basic tokens
-NEWLINE     :   [\n]              ;
+NEWLINE     :   [\n\r]            ;
 DIGIT       :   [0-9]             ;
 WORD        :   [a-zA-Z]+         ;
 PUNCTUATION :   [.,?!'"]          ;
