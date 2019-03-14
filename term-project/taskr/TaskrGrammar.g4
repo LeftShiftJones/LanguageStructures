@@ -5,18 +5,20 @@ prog: entries* EOF;
 entries: entry NEWLINE
        ;
 
-entry: task description ';' date repeat
-     | event description ';' date repeat
+entry: task description ';' date (NEWLINE subtask)*
+     | event description ';' date
      | note description
      ;
 
 task: 't' modifier ':';
 
+subtask: 't' ':' description (NEWLINE note description)*;
+
 event: 'e' modifier ':';
 
 note: 'n:';
 
-date: day month year
+date: day month year repeat
     |
     ;
 
@@ -47,4 +49,4 @@ NEWLINE     :   [\n\r]            ;
 DIGIT       :   [0-9]             ;
 WORD        :   [a-zA-Z]+         ;
 PUNCTUATION :   [.,?!'"]          ;
-WS          :   [ \t]+ -> skip    ; // tells ANTLR to ignore these
+WS          :   [ \t]+ -> skip      ; // tells ANTLR to ignore these

@@ -72,6 +72,6 @@ prime_partitions(Goal,Primes,List) :-
 
 
 
-main(Goal) :-
+prime_partitions(Goal) :-
 	primes(2,Goal,L),				% Get Primes list (stores to L)
 	prime_partitions(Goal,L,[]).	% Run prime partitions with given parameters

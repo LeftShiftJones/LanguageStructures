@@ -21,10 +21,11 @@ def prime_partitions(n, k=1, lst=[]):
         # remainder is 0 means sum(lst) == original number
         # in other words, lst is the prime partition
         # note: lst might be empty :)
-        print(' + '.join(map(str, lst)))
+        # print(' + '.join(map(str, lst)))
+        pass
     elif n > k:
         # might have primes that can contribute to partition
-        for p in primes(k + 1, n):
+        for p in primes(k+1, n):
             prime_partitions(n - p, p, lst + [p])
 
  # main loop: ask user for number, then print prime partitions
