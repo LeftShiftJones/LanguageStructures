@@ -1,0 +1,102 @@
+**TASKR**
+                        David Fletcher & Ryan Jones
+
+# Project
+
+## Domain
+We have decided to write a Domain-Specific Language to help with scheduling called Taskr. The domain for this problem is translating from written, "Bullet-Journal" style entries to an online calendar which will visualize these entries. The idea is that someone could use their smartphone to take a picture of their journal containing the proper formatted text and use computer vision and text recognition to translate this text into an HTML document.
+
+## Purpose
+The purpose of this language is to <!--get a good grade in this class -->handle the intermediary step of translating a text file into meaningful symbols that an HTML file can display to represent a personal calendar.
+
+## Example
+Here is an example of text that would be translated to html:
+<hr>
+```noformat
+t(tomorrow): Do laundry; 2 feb 2019 [w 2 apr 2019]
+    t: Sort laundry
+        n: Whites go in blue basket
+e: Sisters Birthday; 4 feb 2019
+n: Received a compliment from David today!
+```
+<hr>
+
+This will translate to:
+
+<hr>
+```html
+<div class="container day">
+  <h3>February 2nd, 2018</h3>
+  <strong>TASK LIST:</strong>
+  <div class="container">
+      &amp;gt; Do laundry (repeats weekly)
+    <div class="container">
+      &amp;bull; Sort laundry
+      <div class="container">
+        &amp;mdash; whites go in the blue basket
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container day d-none">
+<!-- no tasks for February 3rd, 2018 -->
+</div>
+
+<div class="container day">
+  <h3>February 4th, 2018</h3>
+  <strong>TASK LIST:</strong>
+  <div class="container">
+    &amp;#9702; Sister's Birthday
+  </div>
+  <div class="container">
+    &amp;mdash; Received a compliment from David today!
+  </div>
+</div>
+```
+<hr>
+
+## Functionality
+
+The HTML outputted by our grammar has a few unique characteristics. First of all, each 'status' of a task (done, later, tomorrow) has an associated symbol (&#88; &lt; &gt; respectively). Additionally, each type of 'entry' (task, event, note) has an associated symbol (&bull; &#9702; &ndash; respectively).
+
+We will be using Bootstrap to format our HTML, which conveniently offers us an easy to indent different elements via the `<div class="container"></div>`. By nesting these, we can display sub-entries, and by putting these on the same hierarchy, we can visualize entries in parallel.
+
+Our translator will have to do more than merely translation, however. Tasks and events are allowed to have repetitions associated with them, and thus the translator will need to generate the correct HTML output for a repeating event. Obviously, we cannot write an infinite file with every repetition onto eternity, so we will only generate HTML for a particular selected day (or month or year). The translator will need to decide which dates fall outside of the range that has been requested by the user, and only generate HTML for dates that are within the date constraints.
+
+Finally, as a user appends new items to the `.taskr` file, we allow them to insert single-line comments, which the parser ignores. These comments could be very useful, for example, if a user is using a phone to generate their `.taskr` file, they could see when each entry was uploaded:
+
+```noformat
+// Uploaded on FEB 1, 2019
+t(tomorrow): Do laundry; 2 feb 2019 [w 2 apr 2019]
+   t: Sort laundry
+       n: Whites go in blue basket
+e: Sisters Birthday; 4 feb 2019
+
+// Uploaded on FEB 5, 2019
+n: Received a compliment from David today!
+```
+
+# Grammar
+
+Our grammar is based around three key symbols:
+
+The token `t` indicates a task. Tasks can have a `modifier` which indicates whether a task has been moved to a later date, the next day, or if it is completed. Tasks then have a `description` element describing what the task is. If a task has a semicolon followed by a `date` (in the format `dd mmm yyyy`), that task will be applied to that specific date. Date strings can have optional repeats for daily, weekly, monthly, yearly, or every $n$ days, until another specified date. If no date is given, the task will be added to a global to-do list, unless it is tab-indented after another task element, in which case it will be seen as a subtask of a parent task (like a step in a process). The full range of parameters for tasks looks like this; optional paramters are indicated by `{item}`:
+
+`t {(done|tomorrow|later)}: Task Description{; 1 Jan 2019 [(d|w|m|y|n 2) 1 Jan 2020]}`
+
+The token `e` indicates an event. Events can have a `modifier` which indicates whether an event has been moved to a later date, the next day, or if it is completed. Events then have a `description` element describing what the event is. If a event has a semicolon followed by a `date` (in the format `dd mmm yyyy`), that event will be applied to that specific date. Like tasks, events can have repeating meeting periods, which can repeat until a certain date (this is built into the `date` grammar). Events do not have child events, like tasks have subtasks. The full range of parameters for events looks like this:
+
+`e {(done|tomorrow|later)}: Event Description{; 1 Jan 2019 [(d|w|m|y|n 2) 1 Jan 2020]}`
+
+The token `n` indicates that the text following is a note, which can be attached to a particular task or event (depending on tablulation, will be worked out in the parsing phase). Notes can have any number of characters followed by a newline character
+
+# Parser
+
+# Translator
+
+
+
+
+
+<!-- Markdeep: --> <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
