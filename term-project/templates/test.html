@@ -1,12 +1,32 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <ol>
-        <li>
-            You reached the test!
-        </li>
-        <li>
-            huzzah!
-        </li>
-    </ol>
+<div class="container day">
+    <h3>February 2nd, 2018</h3>
+    <strong>TASK LIST:</strong>
+    <div class="container">
+        &gt; Do laundry (repeats weekly)
+        <div class="container">
+            &bull; Sort laundry
+            <div class="container">
+                &ndash; whites go in the blue basket
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container day d-none">
+    <!-- no tasks for February 3rd, 2018 -->
+</div>
+
+<div class="container day">
+    <h3>February 4th, 2018</h3>
+    <strong>TASK LIST:</strong>
+    <div class="container">
+        &#9702; Sister's Birthday
+    </div>
+    <div class="container">
+        &ndash; Received a compliment from David today!
+    </div>
+</div>
 {% endblock %}

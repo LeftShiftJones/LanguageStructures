@@ -1,4 +1,4 @@
-// Generated from /home/CS/users/dfletche/.linux/language-structures/LanguageStructures/Term Project/taskr/TaskrGrammar.g4 by ANTLR 4.7.2
+// Generated from /home/CS/users/dfletche/.linux/language-structures/LanguageStructures/term-project/taskr/TaskrGrammar.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -34,6 +34,12 @@ public interface TaskrGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTask(TaskrGrammarParser.TaskContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link TaskrGrammarParser#subtask}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubtask(TaskrGrammarParser.SubtaskContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link TaskrGrammarParser#event}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -52,6 +58,12 @@ public interface TaskrGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDate(TaskrGrammarParser.DateContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link TaskrGrammarParser#repeat}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRepeat(TaskrGrammarParser.RepeatContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link TaskrGrammarParser#modifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -64,11 +76,11 @@ public interface TaskrGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatus(TaskrGrammarParser.StatusContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link TaskrGrammarParser#description}.
+	 * Visit a parse tree produced by {@link TaskrGrammarParser#interval}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDescription(TaskrGrammarParser.DescriptionContext ctx);
+	T visitInterval(TaskrGrammarParser.IntervalContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link TaskrGrammarParser#day}.
 	 * @param ctx the parse tree
@@ -87,4 +99,10 @@ public interface TaskrGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitYear(TaskrGrammarParser.YearContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link TaskrGrammarParser#description}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDescription(TaskrGrammarParser.DescriptionContext ctx);
 }

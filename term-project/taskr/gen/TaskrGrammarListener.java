@@ -1,4 +1,4 @@
-// Generated from /home/CS/users/dfletche/.linux/language-structures/LanguageStructures/Term Project/taskr/TaskrGrammar.g4 by ANTLR 4.7.2
+// Generated from /home/CS/users/dfletche/.linux/language-structures/LanguageStructures/term-project/taskr/TaskrGrammar.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -47,6 +47,16 @@ public interface TaskrGrammarListener extends ParseTreeListener {
 	 */
 	void exitTask(TaskrGrammarParser.TaskContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TaskrGrammarParser#subtask}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubtask(TaskrGrammarParser.SubtaskContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskrGrammarParser#subtask}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubtask(TaskrGrammarParser.SubtaskContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TaskrGrammarParser#event}.
 	 * @param ctx the parse tree
 	 */
@@ -77,6 +87,16 @@ public interface TaskrGrammarListener extends ParseTreeListener {
 	 */
 	void exitDate(TaskrGrammarParser.DateContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TaskrGrammarParser#repeat}.
+	 * @param ctx the parse tree
+	 */
+	void enterRepeat(TaskrGrammarParser.RepeatContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskrGrammarParser#repeat}.
+	 * @param ctx the parse tree
+	 */
+	void exitRepeat(TaskrGrammarParser.RepeatContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TaskrGrammarParser#modifier}.
 	 * @param ctx the parse tree
 	 */
@@ -97,15 +117,15 @@ public interface TaskrGrammarListener extends ParseTreeListener {
 	 */
 	void exitStatus(TaskrGrammarParser.StatusContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TaskrGrammarParser#description}.
+	 * Enter a parse tree produced by {@link TaskrGrammarParser#interval}.
 	 * @param ctx the parse tree
 	 */
-	void enterDescription(TaskrGrammarParser.DescriptionContext ctx);
+	void enterInterval(TaskrGrammarParser.IntervalContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link TaskrGrammarParser#description}.
+	 * Exit a parse tree produced by {@link TaskrGrammarParser#interval}.
 	 * @param ctx the parse tree
 	 */
-	void exitDescription(TaskrGrammarParser.DescriptionContext ctx);
+	void exitInterval(TaskrGrammarParser.IntervalContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link TaskrGrammarParser#day}.
 	 * @param ctx the parse tree
@@ -136,4 +156,14 @@ public interface TaskrGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitYear(TaskrGrammarParser.YearContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TaskrGrammarParser#description}.
+	 * @param ctx the parse tree
+	 */
+	void enterDescription(TaskrGrammarParser.DescriptionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskrGrammarParser#description}.
+	 * @param ctx the parse tree
+	 */
+	void exitDescription(TaskrGrammarParser.DescriptionContext ctx);
 }

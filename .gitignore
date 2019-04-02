@@ -1,5 +1,6 @@
 **/venv
 **/.vscode
 **/.idea
-Term Project/taskr/out/
+./term-project/taskr/out
+./term-project/taskr/gen
 A_03
