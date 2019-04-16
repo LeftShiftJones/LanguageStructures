@@ -13,6 +13,8 @@ public class Tasker {
         TaskrGrammarLexer lexer = new TaskrGrammarLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         TaskrGrammarParser parser = new TaskrGrammarParser(tokens);
-        parser.prog(); // parse the input stream!
+        TaskrGrammarParser.ProgContext ctx = parser.prog();
+        TaskrGrammarBaseVisitorImpl visitor = new TaskrGrammarBaseVisitorImpl();
+        visitor.visitProg(ctx);
     }
 }

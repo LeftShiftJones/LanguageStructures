@@ -1,3 +1,4 @@
+e (tomorrow) : sisters birthday; 5 feb 1932
 t: do laundry; 2 feb 2018
     t: gather laundry
     t: sort laundry
@@ -6,4 +7,3 @@ t: do laundry; 2 feb 2018
 t (done): homework 01; 6 feb 2401
 t (tomorrow): pet dog; 20 feb 6321
 n: held my sisters birthday today!
-e: sisters birthday; 5 feb 1932
