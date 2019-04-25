@@ -34,12 +34,6 @@ public interface TaskrGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTask(TaskrGrammarParser.TaskContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link TaskrGrammarParser#subtask}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSubtask(TaskrGrammarParser.SubtaskContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link TaskrGrammarParser#event}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -57,6 +51,12 @@ public interface TaskrGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDate(TaskrGrammarParser.DateContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link TaskrGrammarParser#rep_date}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRep_date(TaskrGrammarParser.Rep_dateContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link TaskrGrammarParser#repeat}.
 	 * @param ctx the parse tree

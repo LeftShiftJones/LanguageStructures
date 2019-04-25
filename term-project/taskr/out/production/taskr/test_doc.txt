@@ -1,9 +1,11 @@
-e (tomorrow) : sisters birthday; 5 feb 1932
-t: do laundry; 2 feb 2018
-    t: gather laundry
-    t: sort laundry
-        n: whites go in blue basket
-    t: wash
+e (tomorrow) : RYAN JONES; 25 apr 2019 [y 10 feb 1933]
+t (later): DAVID FLETCHER; 26 apr 2019
+t: HULLABALOOO; 29 apr 2019
+t: sort laundry; 02 may 2019
+n: whites go in blue basket
+t: wash; 02 may 2019
 t (done): homework 01; 6 feb 2401
-t (tomorrow): pet dog; 20 feb 6321
+t (tomorrow): pet dog; 01 may 2019
 n: held my sisters birthday today!
+t: TESTING REPEAT; 12 apr 2019 [d 27 apr 2019]
+n: Let's hope this works

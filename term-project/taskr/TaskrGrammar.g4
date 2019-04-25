@@ -5,9 +5,9 @@ prog: entries* EOF;
 entries: entry NEWLINE
        ;
 
-entry: (task description
-     | event description
-     | note description) (';' date)?
+entry: (task description ';' date
+     | event description ';' date
+     | note description)
      ;
 
 task: 't' modifier ':';
@@ -19,7 +19,10 @@ note: 'n:';
 date: day month year repeat
     ;
 
-repeat: '['interval date']'
+rep_date: day month year
+    ;
+
+repeat: '['interval rep_date']'
       |
       ;
 
@@ -29,7 +32,7 @@ modifier: '('status')'
 
 status: ('later'|'tomorrow'|'done');
 
-interval: ('d'|'w'|'m'|'y'|'n' DIGIT+);
+interval: ('d'|'w'|'m'|'y'); // 'n' DIGIT+
 
 day        : DIGIT (DIGIT)?;
 month      : WORD;

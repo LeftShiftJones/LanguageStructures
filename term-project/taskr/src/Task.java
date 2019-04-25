@@ -8,10 +8,11 @@ public class Task implements TaskrElement {
     private String repeatModifier;
     private Date date;
     private Date repeatEndDate;
+    private Note note;
 
     private Vector<TaskrElement> children;
 
-    public final String SYMBOL = "&bull;";
+    public String SYMBOL = "&bull;";
     public final String TYPE = "task";
 
     @Override
@@ -26,7 +27,19 @@ public class Task implements TaskrElement {
 
     @Override
     public String getRepeatModifier() {
-        return repeatModifier;
+        if(this.repeatModifier == null) return null;
+        switch(this.repeatModifier) {
+            case "d":
+                return "(repeats daily)";
+            case "w":
+                return "(repeats weekly)";
+            case "m":
+                return "(repeats monthly)";
+            case "y":
+                return "(repeats yearly)";
+            default:
+                return null;
+        }
     }
 
     @Override
@@ -44,6 +57,24 @@ public class Task implements TaskrElement {
         return children;
     }
 
+    public Note getNote() {
+        return note;
+    }
+
+    @Override
+    public String translate() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<div class='container'>\n");
+        sb.append(this.SYMBOL);
+        sb.append(" ");
+        sb.append(this.getDescription());
+        if(this.repeatModifier != null) sb.append(this.getRepeatModifier());
+        sb.append("\n");
+        if(this.note != null) sb.append(this.note.translate());
+        sb.append("</div>");
+        return sb.toString();
+    }
+
     @Override
     public void setDescription(String desc) {
         this.description = desc;
@@ -51,7 +82,22 @@ public class Task implements TaskrElement {
 
     @Override
     public void setModifier(String mod) {
+        if(mod == null) return;
         this.modifier = mod;
+
+        switch(mod) {
+            case "later":
+                this.setSYMBOL("&lt;");
+                break;
+            case "tomorrow":
+                this.setSYMBOL("&gt;");
+                break;
+            case "done":
+                this.setSYMBOL("X");
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -67,6 +113,14 @@ public class Task implements TaskrElement {
     @Override
     public void setRepeatEndDate(Date date) {
         this.repeatEndDate = date;
+    }
+
+    public void setNote(Note note) {
+        this.note = note;
+    }
+
+    public void setSYMBOL(String newSymbol) {
+        this.SYMBOL = newSymbol;
     }
 
     @Override

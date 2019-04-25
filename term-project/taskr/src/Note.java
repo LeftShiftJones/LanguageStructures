@@ -8,6 +8,7 @@ public class Note implements TaskrElement {
     private String repeatModifier;
     private Date date;
     private Date repeatEndDate;
+    private Note note;
 
     private Vector<TaskrElement> children;
 
@@ -45,6 +46,23 @@ public class Note implements TaskrElement {
     }
 
     @Override
+    public Note getNote() {
+        return this;
+    }
+
+    @Override
+    public String translate() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<div class='container'>\n");
+        sb.append(this.SYMBOL);
+        sb.append(" ");
+        sb.append(this.getDescription());
+        sb.append("\n");
+        sb.append("</div>");
+        return sb.toString();
+    }
+
+    @Override
     public void setDescription(String desc) {
         this.description = desc;
     }
@@ -67,6 +85,10 @@ public class Note implements TaskrElement {
     @Override
     public void setRepeatEndDate(Date date) {
         this.repeatEndDate = date;
+    }
+
+    @Override
+    public void setNote(Note note) {
     }
 
     @Override

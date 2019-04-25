@@ -47,16 +47,6 @@ public interface TaskrGrammarListener extends ParseTreeListener {
 	 */
 	void exitTask(TaskrGrammarParser.TaskContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TaskrGrammarParser#subtask}.
-	 * @param ctx the parse tree
-	 */
-	void enterSubtask(TaskrGrammarParser.SubtaskContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link TaskrGrammarParser#subtask}.
-	 * @param ctx the parse tree
-	 */
-	void exitSubtask(TaskrGrammarParser.SubtaskContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link TaskrGrammarParser#event}.
 	 * @param ctx the parse tree
 	 */
@@ -86,6 +76,16 @@ public interface TaskrGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDate(TaskrGrammarParser.DateContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TaskrGrammarParser#rep_date}.
+	 * @param ctx the parse tree
+	 */
+	void enterRep_date(TaskrGrammarParser.Rep_dateContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TaskrGrammarParser#rep_date}.
+	 * @param ctx the parse tree
+	 */
+	void exitRep_date(TaskrGrammarParser.Rep_dateContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link TaskrGrammarParser#repeat}.
 	 * @param ctx the parse tree

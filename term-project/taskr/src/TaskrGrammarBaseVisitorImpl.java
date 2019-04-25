@@ -1,9 +1,13 @@
 import org.antlr.v4.runtime.tree.ParseTree;
-
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 public class TaskrGrammarBaseVisitorImpl extends TaskrGrammarBaseVisitor {
+
+    public Vector<TaskrElement> task_list = new Vector<>();
+
     @Override
     public Object visitProg(TaskrGrammarParser.ProgContext ctx) {
         return super.visitProg(ctx);
@@ -12,6 +16,11 @@ public class TaskrGrammarBaseVisitorImpl extends TaskrGrammarBaseVisitor {
     @Override
     public Object visitEntries(TaskrGrammarParser.EntriesContext ctx) {
         return super.visitEntries(ctx);
+    }
+
+    @Override
+    public Object visitRep_date(TaskrGrammarParser.Rep_dateContext ctx) {
+        return super.visitRep_date(ctx);
     }
 
     @Override
@@ -38,12 +47,24 @@ public class TaskrGrammarBaseVisitorImpl extends TaskrGrammarBaseVisitor {
             String desc = getElementDescription(ctx.description().children);
             el.setDescription(desc);
         }
-        if(ctx.date().children != null) {
-            System.out.println(ctx.date());
-            Date date = getElementDate(ctx.date());
+        if(ctx.date() != null && ctx.date().children != null) {
+            Date date = null;
+            try {
+                date = getElementDate(ctx.date());
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             el.setDate(date);
         }
-
+        if(ctx.date() != null && ctx.date().repeat().children != null) {
+            el.setRepeatModifier(getElementDescription(ctx.date().repeat().interval().children, ""));
+            try{
+                el.setRepeatEndDate(getElementDate(ctx.date().repeat().rep_date()));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        task_list.add(el);
         return super.visitEntry(ctx);
     }
 
@@ -52,10 +73,10 @@ public class TaskrGrammarBaseVisitorImpl extends TaskrGrammarBaseVisitor {
         return super.visitTask(ctx);
     }
 
-    @Override
-    public Object visitSubtask(TaskrGrammarParser.SubtaskContext ctx) {
-        return super.visitSubtask(ctx);
-    }
+//    @Override
+//    public Object visitSubtask(TaskrGrammarParser.SubtaskContext ctx) {
+//        return super.visitSubtask(ctx);
+//    }
 
     @Override
     public Object visitEvent(TaskrGrammarParser.EventContext ctx) {
@@ -128,8 +149,13 @@ public class TaskrGrammarBaseVisitorImpl extends TaskrGrammarBaseVisitor {
         StringBuilder sb = new StringBuilder();
 
         for (ParseTree item : children) {
-            sb.append(item.toString());
-            sb.append(" ");
+            try {
+                int i = Integer.parseInt(item.getText());
+                sb.append(item.toString());
+            } catch (Exception e) {
+                sb.append(item.toString());
+                sb.append(" ");
+            }
 
         }
 
@@ -148,11 +174,21 @@ public class TaskrGrammarBaseVisitorImpl extends TaskrGrammarBaseVisitor {
         return sb.toString();
     }
 
-    private Date getElementDate(TaskrGrammarParser.DateContext ctx) {
+    private Date getElementDate(TaskrGrammarParser.DateContext ctx) throws Exception{
         String day = getElementDescription(ctx.day().children, "");
         String month = getElementDescription(ctx.month().children, "");
         String year = getElementDescription(ctx.year().children, "");
+        String toDate = year + "-" + month + "-" + day;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-ddd");
+        return dateFormat.parse(toDate);
+    }
 
-        return null;
+    private Date getElementDate(TaskrGrammarParser.Rep_dateContext ctx) throws Exception{
+        String day = getElementDescription(ctx.day().children, "");
+        String month = getElementDescription(ctx.month().children, "");
+        String year = getElementDescription(ctx.year().children, "");
+        String toDate = year + "-" + month + "-" + day;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-ddd");
+        return dateFormat.parse(toDate);
     }
 }

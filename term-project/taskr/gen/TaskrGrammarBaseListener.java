@@ -63,18 +63,6 @@ public class TaskrGrammarBaseListener implements TaskrGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSubtask(TaskrGrammarParser.SubtaskContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSubtask(TaskrGrammarParser.SubtaskContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterEvent(TaskrGrammarParser.EventContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -106,6 +94,18 @@ public class TaskrGrammarBaseListener implements TaskrGrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDate(TaskrGrammarParser.DateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRep_date(TaskrGrammarParser.Rep_dateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRep_date(TaskrGrammarParser.Rep_dateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

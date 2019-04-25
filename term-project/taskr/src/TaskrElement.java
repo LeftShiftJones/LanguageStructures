@@ -7,6 +7,9 @@ public interface TaskrElement {
     String getRepeatModifier();
     Date getDate();
     Date getRepeatEndDate();
+    Note getNote();
+
+    String translate();
 
     List<TaskrElement> getChildren();
 
@@ -15,6 +18,6 @@ public interface TaskrElement {
     void setRepeatModifier(String mod);
     void setDate(Date date);
     void setRepeatEndDate(Date date);
-
+    void setNote(Note note);
     void addTaskrChild(TaskrElement el);
 }
