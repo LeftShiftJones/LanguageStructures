@@ -6,4 +6,4 @@
 ## Important Info
 
 * run the web server with `launch.py`
-* compile and run Taskr with `something related to ANTLR`
+* compile and run Taskr with `ANTLR`

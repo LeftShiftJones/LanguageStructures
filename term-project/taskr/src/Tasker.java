@@ -7,9 +7,10 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.io.FileInputStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.Date;
 import java.util.Vector;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Tasker {
     public static void main(String[] args) throws Exception {
@@ -47,14 +48,14 @@ public class Tasker {
                 if(prev.getRepeatModifier() != null && prev.getRepeatModifier().compareTo("(repeats daily)") == 0) {
                     LocalDate temp = repeatsInRange(todayLocal, cutoffLocal, prev);
                     LocalDate end = new java.sql.Date(prev.getRepeatEndDate().getTime()).toLocalDate();
-                    while(temp.until(end).getDays() >= 0 && temp.until(cutoffLocal).getDays() >= 0 ) {
-                        int index = todayLocal.until(temp).getDays();
+                    while(DAYS.between(temp, end) >= 0 && DAYS.between(temp, cutoffLocal) >= 0 ) {
+                        int index = (int) DAYS.between(todayLocal, temp);
                         days[index].addNoteToLast((Note) e);
                         temp = temp.plusDays(1);
                     }
                 } else {
                     LocalDate date = new java.sql.Date(prev.getDate().getTime()).toLocalDate();
-                    int index = todayLocal.until(date).getDays();
+                    int index = (int) DAYS.between(todayLocal, date);
                     days[index].addNoteToLast((Note) e);
                 }
             }
@@ -63,7 +64,7 @@ public class Tasker {
                e.getDate().compareTo(cutoff) <= 0 &&
                e.getDate().compareTo(today) >= 0) {
                 LocalDate date = new java.sql.Date(e.getDate().getTime()).toLocalDate();
-                int index = todayLocal.until(date).getDays();
+                int index = (int) DAYS.between(todayLocal, date);
                 days[index].addElement(e);
                 prev = e;
             }
@@ -73,14 +74,14 @@ public class Tasker {
                 LocalDate temp = repeatsInRange(todayLocal, cutoffLocal, e);
                 LocalDate end = new java.sql.Date(e.getRepeatEndDate().getTime()).toLocalDate();
                 if(e.getRepeatModifier().compareTo("(repeats daily)") == 0) {
-                    while(temp.until(end).getDays() >= 0 && temp.until(cutoffLocal).getDays() >= 0 ) {
-                        int index = todayLocal.until(temp).getDays();
+                    while(DAYS.between(temp, end) >= 0 && DAYS.between(temp, cutoffLocal) >= 0 ) {
+                        int index = (int) DAYS.between(todayLocal, temp);
                         days[index].addElement(e);
                         temp = temp.plusDays(1);
                     }
                     prev = e;
                 } else {
-                    int index = todayLocal.until(temp).getDays();
+                    int index = (int) DAYS.between(todayLocal, temp);
                     days[index].addElement(e);
                     prev = e;
                 }
@@ -113,9 +114,9 @@ public class Tasker {
             LocalDate temp = elementStart;
             int increaseTemp = 0;
 
-            while(temp.until(end).getDays() > 0 &&  temp.until(elementEnd).getDays() > 0) {
+            while(DAYS.between(temp, end) > 0 &&  DAYS.between(temp, elementEnd) > 0) {
 
-                if(temp.until(start).getDays() <= 0 && temp.until(end).getDays() >= 0) { // true case
+                if(DAYS.between(temp, start) <= 0 && DAYS.between(temp, end) >= 0) { // true case
                     return temp;
                 }
 //                System.out.println(e.getRepeatModifier());
