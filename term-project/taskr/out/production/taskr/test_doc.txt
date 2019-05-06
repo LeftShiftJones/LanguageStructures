@@ -1,11 +1,15 @@
-e (tomorrow) : RYAN JONES; 25 apr 2019 [y 10 feb 2018]
-t (later): DAVID FLETCHER; 26 apr 2019
-t: HULLABALOOO; 29 apr 2019
-t: sort laundry; 02 may 2019
+e (done) : Finish Taskr; 6 may 2019
+t (later): David looks over code and documentation; 7 may 2019
+t: HULLABALOOO; 10 may 2019
+t: sort laundry; 12 may 2019
 n: whites go in blue basket
-t: wash; 02 may 2019
+t: wash; 08 may 2019
 t (done): homework 01; 6 feb 2401
 t (tomorrow): pet dog; 01 may 2019
 n: held my sisters birthday today!
-t: TESTING REPEAT; 12 apr 2019 [d 27 apr 2019]
-n: Let's hope this works
+t: chapel; 6 may 2019 [w 19 may 2019]
+n: Here is a weekly monday chapel repeat
+t: chapel; 8 may 2019 [w 19 may 2019]
+n: Here is a weekly wednesday chapel repeat
+t: chapel; 10 may 2019 [w 19 may 2019]
+n: Here is a weekly friday chapel repeat
